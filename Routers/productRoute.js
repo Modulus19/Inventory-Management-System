@@ -10,8 +10,18 @@ const { authorize } = require("../Midddleware/role"); // Import authorization mi
 router.post(
   "/createproduct",
   protect,
-  authorize("superadmin"),
+  authorize("superadmin", "storeowner"),
   productController.createProduct,
+);
+
+// Create A Product With Image Upload
+const upload = require("../Midddleware/upload");
+router.post(
+  "/createproductwithimage",
+  upload.single("image"), // Add this middleware
+  protect,
+  authorize("superadmin", "storeowner"),
+  productController.createProductWithImage,
 );
 
 // Update A Product
