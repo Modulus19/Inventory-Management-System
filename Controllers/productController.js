@@ -1,5 +1,5 @@
 const product = require("../Models/products.model");
-const sendEmail = require("../Midddleware/emailSender"); // Import the email sender function
+const sendEmail = require("../Middleware/emailSender"); // Import the email sender function
 
 // Create A Product
 exports.createProduct = async (req, res) => {

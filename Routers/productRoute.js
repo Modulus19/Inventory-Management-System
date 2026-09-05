@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const productController = require("../Controllers/productController");
-const { protect } = require("../Midddleware/auth"); // Import authentication middleware to protect routes
-const { authorize } = require("../Midddleware/role"); // Import authorization middleware to check user roles
+const { protect } = require("../Middleware/auth"); // Import authentication middleware to protect routes
+const { authorize } = require("../Middleware/role"); // Import authorization middleware to check user roles
 
 //DEFINING ROUTES FOR PRODUCT CRUD OPERATIONS
 
@@ -15,7 +15,7 @@ router.post(
 );
 
 // Create A Product With Image Upload
-const upload = require("../Midddleware/upload");
+const upload = require("../Middleware/upload");
 router.post(
   "/createproductwithimage",
   upload.single("image"), // Add this middleware
